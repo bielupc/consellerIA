@@ -378,13 +378,13 @@ function endGame(whichBar, level) {
         data = window.gameData.gameOvers[whichBar][level];
     }
 
-    document.getElementById('end-title').textContent = (whichBar === 'SUCCESS') ? '🎉 Mandat Complet' : '⚠️ Mandat Finalitzat';
+    document.getElementById('end-title').textContent = (whichBar === 'SUCCESS') ? 'Mandat Complet' : 'Mandat Finalitzat';
     document.getElementById('end-headline').textContent = data.headline;
     document.getElementById('end-reason').textContent = data.reason;
 
     const barsContainer = document.getElementById('end-bars');
     barsContainer.innerHTML = '';
-    const colors = { pacients: '#a855f7', metges: '#3b82f6', pressupost: '#f59e0b', mediAmbient: '#10b981' };
+    const colors = { pacients: '#c8102e', metges: '#0284c7', pressupost: '#d97706', mediAmbient: '#16a34a' };
     const names = { pacients: 'Pacients', metges: 'Metges', pressupost: 'Pressupost', mediAmbient: 'Medi Ambient' };
     const svgIcons = {
         pacients: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>',
