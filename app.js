@@ -435,12 +435,8 @@ function startNewGame() {
     showScreen(screenGame);
 }
 
-window.startNewGame = startNewGame;
-
 document.getElementById('btn-start').addEventListener('click', startNewGame);
 
 document.getElementById('btn-to-intro')?.addEventListener('click', () => {
     showScreen(screenIntro);
 });
-
-document.getElementById('btn-restart')?.addEventListener('click', startNewGame);
