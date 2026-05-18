@@ -435,20 +435,12 @@ function startNewGame() {
     showScreen(screenGame);
 }
 
+window.startNewGame = startNewGame;
+
 document.getElementById('btn-start').addEventListener('click', startNewGame);
 
 document.getElementById('btn-to-intro')?.addEventListener('click', () => {
     showScreen(screenIntro);
 });
 
-document.getElementById('btn-restart')?.addEventListener('click', () => {
-    startNewGame();
-});
-
-document.getElementById('btn-survey')?.addEventListener('click', (e) => {
-    const url = e.currentTarget.href;
-    const opened = window.open(url, '_blank', 'noopener,noreferrer');
-    if (opened) {
-        e.preventDefault();
-    }
-});
+document.getElementById('btn-restart')?.addEventListener('click', startNewGame);
