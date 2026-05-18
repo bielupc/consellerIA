@@ -416,15 +416,14 @@ function endGame(whichBar, level) {
     showScreen(screenEnd);
 }
 
-document.getElementById('btn-start').addEventListener('click', () => {
+function startNewGame() {
     stats = { pacients: 50, metges: 50, pressupost: 50, mediAmbient: 50 };
     currentIndex = 0;
 
     gameOver = false;
-    mobileHintShown = false; // Reset hint for new game
-    decisionsHistory = []; // Reset decisions tracking
+    mobileHintShown = false;
+    decisionsHistory = [];
 
-    // Assegurar que hi ha dades per fer la barreja inicial
     if (window.gameData) {
         shuffledDeck = shuffleArray([...window.gameData.deck]);
     } else {
@@ -434,8 +433,22 @@ document.getElementById('btn-start').addEventListener('click', () => {
     updateBars();
     renderCard();
     showScreen(screenGame);
-});
+}
+
+document.getElementById('btn-start').addEventListener('click', startNewGame);
 
 document.getElementById('btn-to-intro')?.addEventListener('click', () => {
     showScreen(screenIntro);
+});
+
+document.getElementById('btn-restart')?.addEventListener('click', () => {
+    startNewGame();
+});
+
+document.getElementById('btn-survey')?.addEventListener('click', (e) => {
+    const url = e.currentTarget.href;
+    const opened = window.open(url, '_blank', 'noopener,noreferrer');
+    if (opened) {
+        e.preventDefault();
+    }
 });
